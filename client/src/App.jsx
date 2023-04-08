@@ -5,13 +5,14 @@ import Loading from "./components/Loading/Loading";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getUser } from "./redux/actions/authAction";
+import DetailPost from "./pages/DetailPost/DetailPost";
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
 
   return (
     <>

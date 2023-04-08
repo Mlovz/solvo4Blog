@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Title, Input } from "../../components";
 import "./auth.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Register = () => {
   const [userData, setUserData] = useState({
@@ -8,11 +10,18 @@ const Register = () => {
     password: "",
     cf_password: "",
   });
+  const { token } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
+
+  if (token) {
+    return navigate("/");
+  }
 
   return (
     <div className="auth">

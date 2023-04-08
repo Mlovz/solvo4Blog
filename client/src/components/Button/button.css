@@ -9,6 +9,11 @@
   background: transparent;
   border: 1px solid #d23669;
   color: #d23669;
+  
+}
+
+.btn.outline:hover {
+  background: #d2366a44
 }
 .btn.solid {
   background: #d23669;

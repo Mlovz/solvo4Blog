@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Title, Input } from "../../components";
 import "./auth.css";
 import { login } from "../../redux/actions/authAction";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [userData, setUserData] = useState({
@@ -12,6 +13,8 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const { error } = useSelector((state) => state.alert);
+  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,8 +24,12 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(login(userData));
+    dispatch(login(userData, navigate));
   };
+
+  if (token) {
+    return navigate("/");
+  }
 
   return (
     <div className="auth">

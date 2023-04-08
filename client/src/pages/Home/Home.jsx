@@ -1,18 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./home.css";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { ArticleCard } from "../../components";
 
 const Home = () => {
-  const [text, setText] = useState(false);
+  const { token } = useSelector((state) => state.auth);
 
-  const hadnleClick = () => {
-    setText(!text);
-  };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      return navigate("/login");
+    }
+  }, [token]);
 
   return (
-    <div>
-      {text && <h1>Ds rkbyasdasdsadsa</h1>}
+    <div className="container">
+      <div className="home">
+        <h1>Unusual blog</h1>
 
-      <button onClick={hadnleClick}>Click</button>
+        <div className="home_box">
+          {/* {[1, 2, 3, 4, 5].map((post, index) => (
+            <ArticleCard
+              key={index}
+              post={{
+                _id: 1,
+                title: "",
+                createdAt: "",
+                content: "",
+              }}
+            />
+          ))} */}
+        </div>
+      </div>
     </div>
   );
 };

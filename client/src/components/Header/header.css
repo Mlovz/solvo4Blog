@@ -22,3 +22,18 @@
   align-items: center;
   gap: 20px;
 }
+
+
+.header_user{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.header_user > img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
