@@ -5,10 +5,12 @@ import thunk from "redux-thunk";
 
 import authReducer from "./reducers/authReducer";
 import alertReducer from "./reducers/alertReducer";
+import articleReducer from "./reducers/articleReducer";
 
 const rootReducers = combineReducers({
   auth: authReducer,
   alert: alertReducer,
+  article: articleReducer,
 });
 
 export const store = createStore(

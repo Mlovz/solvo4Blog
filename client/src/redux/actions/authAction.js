@@ -16,8 +16,7 @@ export const login = (userData, navigate) => async (dispatch) => {
         },
       });
       localStorage.setItem("token", res.data.access_token);
-      navigate("/");
-      // window.location.href = "/";
+      window.location.href = "/";
     }
 
     dispatch({ type: "LOADING", payload: { loading: false } });

@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import "./home.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { ArticleCard } from "../../components";
+import { ArtcleCard } from "../../components";
 
 const Home = () => {
   const { token } = useSelector((state) => state.auth);
+  const { articles } = useSelector((state) => state.article);
 
   const navigate = useNavigate();
 
@@ -15,23 +16,17 @@ const Home = () => {
     }
   }, [token]);
 
+  console.log(articles);
+
   return (
     <div className="container">
       <div className="home">
         <h1>Unusual blog</h1>
 
         <div className="home_box">
-          {/* {[1, 2, 3, 4, 5].map((post, index) => (
-            <ArticleCard
-              key={index}
-              post={{
-                _id: 1,
-                title: "",
-                createdAt: "",
-                content: "",
-              }}
-            />
-          ))} */}
+          {articles.map((post, index) => (
+            <ArtcleCard key={index} post={post} />
+          ))}
         </div>
       </div>
     </div>
