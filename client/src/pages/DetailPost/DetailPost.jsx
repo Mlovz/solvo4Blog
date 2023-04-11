@@ -29,7 +29,13 @@ const DetailPost = () => {
     return <h1>Loading...</h1>;
   }
 
-  return <div className="detail_post">{post?.map()}</div>;
+  return (
+    <div className="detail_post">
+      {/* {post?.map((item) => (
+        <div>{}</div>
+      ))} */}
+    </div>
+  );
 };
 
 export default DetailPost;
